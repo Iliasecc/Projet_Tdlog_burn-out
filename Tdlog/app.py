@@ -9,8 +9,8 @@ import openai
 app = Flask(__name__)
 app.secret_key = "secret-key"  # Nécessaire pour afficher les messages flash
 
+openai.api_key = "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"
 
-openai.api_key = "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"
 
 
 # Chemins vers les fichiers du modèle et du scaler
