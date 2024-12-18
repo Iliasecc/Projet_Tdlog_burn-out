@@ -27,6 +27,63 @@ Bienvenue sur **Burnout Guard**, une plateforme réactive dédiée au bien-être
 - **Analyse des données** : Un algorithme analyse les données collectées pour évaluer le burnout rate de chaque employé et suggère des actions corre Un tableau de bord moderne permet aux responsables des ressources humaines de suivre et de gérer facilement le bien-être de leurs employésctives adaptées.
 - **Interface intuitive** :.
 
+
+## Structure du Projet
+
+Le projet **TDLOG** est une application web qui utilise Flask pour le backend, un modèle de machine learning pour certaines fonctionnalités, et une interface utilisateur construite avec HTML, CSS, et JavaScript. Voici une description détaillée de l'organisation du projet :
+
+### **Dossier Principal : `tdlog`**
+Le dossier `tdlog` contient tous les fichiers nécessaires pour l'application, organisés comme suit :
+
+- **`app.py`** : Le backend de l'application développé avec Flask. Il gère la logique des routes, les appels au modèle de machine learning, et les interactions avec les données.
+- **Modèles Machine Learning** :
+  - `model1.pkl` : Le modèle de machine learning entraîné.
+  - `scaler.pkl` : Le scaler utilisé pour le prétraitement des données.
+- **Dossier `templates/`** : Contient les pages HTML de l'application.
+  - `employé.html` : Tableau de bord de l'employé.
+  - `rh.html` : Tableau de bord des responsables RH.
+  - `psyvirtuel.html` : Page de chat avec l'IA Eden, un psy virtuel pour les employés.
+  - `activite.html` : Propositions d'activités et gamification pour le bien-être des employés.
+  - `validation.html` : Page permettant aux RH de valider les justificatifs d'activités déposés par les employés.
+  - `profile.html` : Profil utilisateur pour les employés.
+  - `profiler.html` : Profil utilisateur pour les responsables RH.
+- **Dossier `static/`** : Contient les ressources statiques utilisées par l'application.
+  - `img/` : Toutes les images utilisées dans les pages web.
+  - `css/` : Les fichiers CSS pour styliser les pages.
+  - `js/` : Les fichiers JavaScript pour ajouter des fonctionnalités.
+  - `lib/` : Bibliothèques graphiques utilisées pour les visualisations.
+  - `scss/` : Fichiers Bootstrap pour la mise en forme des pages.
+
+### **Fichiers à la Racine du Projet**
+En dehors du dossier `tdlog`, les fichiers suivants sont présents :
+- **`tdlog.ipynb`** : Un notebook Jupyter contenant le modèle machine learning entraîné et les analyses associées.
+- **`employees.json`** : Base de données contenant les informations des employés après qu'ils ont rempli leurs tableaux de bord.
+- **`grouped_employee.json`** : Fichier regroupant les employés en fonction des semaines réduites.
+
+---
+
+## Guide d'Installation et d'Exécution
+
+Pour exécuter et tester l'application en local, suivez les étapes ci-dessous :
+
+### **Prérequis**
+- Python 3.x installé sur votre machine.
+- Les bibliothèques Python nécessaires (voir les étapes ci-dessous).
+- Un navigateur web.
+
+### **Étapes**
+1. **Cloner le projet**  
+   Téléchargez ou clonez le projet dans un répertoire local :
+   ```bash
+   git clone <url_du_dépôt>
+   cd tdlog
+   
+ 2.**pip install -r requirements.txt**
+
+ 3.**Exécutez le fichier app.py**
+ 
+ 4.**Naviguer dans l'application en vous imaginant un Employé et puis un RH**
+ 
 ## Contribution :
 
 Les contributions sont les bienvenues ! Si vous souhaitez améliorer le projet, proposer de nouvelles fonctionnalités, corriger des bugs ou améliorer la documentation, n'hésitez pas à soumettre une **pull request**.
