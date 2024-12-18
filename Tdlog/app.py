@@ -1,16 +1,22 @@
 import json
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, jsonify
 import numpy as np
 import pickle
 from collections import Counter
+import openai
+
 
 app = Flask(__name__)
 app.secret_key = "secret-key"  # Nécessaire pour afficher les messages flash
 
+
+openai.api_key = "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"
+
+
 # Chemins vers les fichiers du modèle et du scaler
 model_path = "Projet_Tdlog_burn-out/Tdlog/model1.pkl"
 scaler_path = "Projet_Tdlog_burn-out/Tdlog/scaler1.pkl"
-data_file_path = "Projet_Tdlog_burn-out/employees_data.json"
+data_file_path = "employees_data.json"
 
 # Charger le modèle
 with  open(model_path, "rb") as model_file:
@@ -32,9 +38,30 @@ def load_employee_data():
 def save_employee_data(data):
     with open(data_file_path, "w") as f:
         json.dump(data, f)
+# Fonction pour regrouper les employés par semaine réduite
+def group_and_save_employees(data):
+    grouped_data = {
+        "Semaine 1": [],
+        "Semaine 2": [],
+        "Semaine 3": [],
+        "Semaine 4": [],
+        "Congé de 3 jours pour taux de burn-out trop élevé": []
+    }
+    
+    for employee in data:
+        semaine = employee["Semaine réduite"]
+        grouped_data[semaine].append({
+            "Nom": employee["Nom"],
+            "Prénom": employee["Prénom"]
+        })
+    
+    with open(grouped_data_file_path, "w") as f:
+        json.dump(grouped_data, f, indent=4)
 
 # Liste pour stocker les données des employés
 employees_data = load_employee_data()
+
+
 @app.route("/", methods=["GET", "POST"])
 def signin():
     if request.method == "POST":
@@ -107,7 +134,10 @@ def employé():
 
             # Sauvegarder les données
             save_employee_data(employees_data)
-
+            
+            # Sauvegarder les données groupées
+            group_and_save_employees(employees_data)
+            
             # Message flash
             flash(f"Vos informations Monsieur/Madame: {prenom} {nom} ont été enregistrées avec succès. Votre responsable Rh vous communiquera votre semaine réduite en début du mois.", "success")
         except Exception as e:
@@ -118,7 +148,20 @@ def employé():
 # Route pour afficher le tableau des employés
 @app.route("/rh")
 def rh():
-    return render_template("rh.html", employees=employees_data)
+    try:
+        with open(grouped_data_file_path, "r") as f:
+            grouped_employees = json.load(f)
+    except FileNotFoundError:
+        grouped_employees = {
+            "Semaine 1": [],
+            "Semaine 2": [],
+            "Semaine 3": [],
+            "Semaine 4": [],
+            "Congé de 3 jours pour taux de burn-out trop élevé": []
+        }
+    
+    return render_template("rh.html", employees=employees_data, grouped_employees=grouped_employees)
+
 
 @app.route("/profile")
 def profile():
@@ -130,5 +173,44 @@ def profiler():
     return render_template("profiler.html")
 
 
+@app.route("/psyvirtuel")
+def psyvirtuel():
+    return render_template("psyvirtuel.html")
+
+@app.route("/chat", methods=["POST"])
+def chat():
+    try:
+        # Récupérer le message utilisateur depuis la requête POST
+        user_message = request.json.get("message", "")
+
+        if not user_message:
+            return jsonify({"error": "Message utilisateur manquant"}), 400
+
+        # Appel à OpenAI pour générer une réponse
+        response = openai.ChatCompletion.create(
+            model="gpt-4",  # Utilisez "gpt-4" ou un autre modèle disponible
+            messages=[
+                {"role": "system", "content": "Vous êtes Eden un psychologue virtuel prêt à aider les utilisateurs qui sont des employé qui ont des problèmes avec le travail ou la vie en générale, essaye de donner à chaque fois des recommendations pertinentes pour les aider."},
+                {"role": "user", "content": user_message}
+            ]
+        )
+
+        # Extraire la réponse générée par le modèle
+        ai_response = response['choices'][0]['message']['content']
+
+        # Retourner la réponse au client
+        return jsonify({"response": ai_response})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/activite")
+def activite():
+    return render_template("activite.html")
+
+
+@app.route("/validation")
+def validation():
+    return render_template("validation.html")
 if __name__ == "__main__":
     app.run(debug=True)
