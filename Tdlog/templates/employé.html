@@ -64,9 +64,9 @@
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="{{ url_for('employé') }}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-
+                    <a href="{{ url_for('psyvirtuel') }}" class="nav-item nav-link"><i class="fa fa-user-md me-2"></i>Psy Virtuel</a>
+                    <a href="{{ url_for('activite') }}" class="nav-item nav-link"><i class="fa fa-tasks me-2"></i>Activités</a>
                     <a href="{{ url_for('signin') }}" class="nav-item nav-link"><i class="fa fa-home me-2"></i>Déconnexion</a>
-
                     
                 </div>
             </nav>
@@ -316,10 +316,7 @@
                         <div class="col-12 col-sm-6 text-center text-sm-start">
                             &copy; <a href="#">BurnoutGuard</a>, All Right Reserved. 
                         </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-end">
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">Ilias maaroufi</a>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -388,7 +385,7 @@
             "Avez-vous du mal à vous concentrer au travail ?",
             "Votre charge de travail est-elle gérable ?",
             "Vous sentez-vous souvent fatigué mentalement après une journée de travail ?",
-            "Trouvez-vous du temps pour vous détendre en dehors du travail ?"
+            "Ne trouvez-vous du temps pour vous détendre en dehors du travail ?"
         ];
     
         const scores = {
