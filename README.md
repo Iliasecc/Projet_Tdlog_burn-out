@@ -1,19 +1,33 @@
-# Projet_Tdlog_burn-out
+# Burnout Guard
 
-Plateforme de gestion du temps de travail et du bien-être des employés :
+**Plateforme de bien-être des employés** :
 
-Bienvenue sur notre plateforme dédiée à l'optimisation du temps de travail et au suivi du bien-être des employés. Ce site permet aux employés de saisir leurs données personnelles telles que le genre, la disponibilité du télétravail, l'allocation des ressources et le score de fatigue mentale. Les responsables des ressources humaines (DRH) peuvent ensuite utiliser ces informations, couplées à des prédictions basées sur le machine learning, pour déterminer si un employé devrait travailler quatre jours au lieu de cinq dans la semaine, ou même s'il a besoin d'un congé.
+Bienvenue sur **Burnout Guard**, une plateforme réactive dédiée au bien-être des employés. Notre mission est d'aider les entreprises à prévenir le burnout et à améliorer la qualité de vie au travail. La plateforme utilise des données calculées chaque fin de mois pour déterminer le **burnout rate** des employés et propose des solutions personnalisées en fonction de ce taux. Et en plus elle propose des solutions préventives au burnout comme un psy virtuel et des activités pour le bien-être
 
-Fonctionalités :
+## Fonctionnalités principales :
 
-Saisie de données par les employés : Un formulaire intuitif permet aux employés de renseigner leurs informations personnelles et professionnelles.
+### 1. **Suivi du burnout rate :**
+   - **Calcul du burnout rate** : Chaque employé saisit des informations sur son travail et son état mental. Ces données sont utilisées pour calculer un score mensuel de **burnout**.
+   - **Solutions proposées** : En fonction du pourcentage de burnout, la plateforme recommande des actions comme des semaines réduites ou des congés, permettant de mieux gérer la charge de travail et prévenir le burnout.
 
-Analyse par machine learning : Les données collectées sont analysées par un algorithme de machine learning pour évaluer le burnout rate et prédire les besoins en termes de jours de travail ou de congé.
+### 2. **Eden - Psychologue virtuel :**
+   - **Eden**, notre psy virtuel, est là pour écouter et répondre à toutes les préoccupations des employés. En cas de besoin, Eden peut organiser des séances avec des psychologues professionnels pour un accompagnement plus approfondi.
 
-Interface pour les DRH : Les responsables des ressources humaines disposent d'un tableau de bord pour consulter les données des employés et les recommandations générées par l'algorithme.
+### 3. **Gamification et activités bien-être :**
+   - **Activités individuelles** : Les employés peuvent participer à des activités bien-être proposées par l'entreprise. Lorsqu'ils les complètent, ils soumettent un justificatif à la RH. Si l'activité est validée, l'employé gagne des points.
+   - **Activités collectives** : Les employés peuventproposer des activités collectives (comme un match de football, un dîner, etc.). S'ils participent à ces activités, ils gagnent également des poin ts.
+   - **Proposition d'activités** : Chaque employé peut proposer des activités bien-être à l'ensemble de l'entreprise. Si l'activité est concrétisée, l'employé obtient encore plus de points.
 
-Les contributions sont les bienvenues ! Si vous souhaitez ajouter des fonctionnalités, corriger des bugs ou améliorer la documentation, n'hésitez pas à soumettre une pull request.
+### 4. **Tableau de bord pour les DRH :**
+   - Les responsables des ressources humaines peuvent suivre les scores de burnout des employés, valider les activités soumises, et ajuster les horaires ou accorder des congés en fonction des recommandations basées sur les données.
 
+## Fonctionnalités supplémentaires :
 
+- **Saisie de données** : Les employés renseignent leurs informations professionnelles et personnelles via un formulaire simple.
+- **Analyse des données** : Un algorithme analyse les données collectées pour évaluer le burnout rate de chaque employé et suggère des actions corre Un tableau de bord moderne permet aux responsables des ressources humaines de suivre et de gérer facilement le bien-être de leurs employésctives adaptées.
+- **Interface intuitive** :.
 
+## Contribution :
+
+Les contributions sont les bienvenues ! Si vous souhaitez améliorer le projet, proposer de nouvelles fonctionnalités, corriger des bugs ou améliorer la documentation, n'hésitez pas à soumettre une **pull request**.
 
