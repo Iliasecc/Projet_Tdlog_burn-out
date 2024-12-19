@@ -61,15 +61,36 @@ En dehors du dossier `tdlog`, les fichiers suivants sont présents :
 - **`grouped_employee.json`** : Fichier regroupant les employés en fonction des semaines réduites.
 
 ---
+tdlog/                                # Dossier principal du projet
+    ├── app.py                        # Backend Flask
+    ├── model1.pkl                    # Modèle de machine learning
+    ├── scaler.pkl                    # Scaler utilisé pour le prétraitement
+    ├── templates/                    # Dossier pour les fichiers HTML
+    │   ├── employe.html              # Tableau de bord de l'employé
+    │   ├── rh.html                   # Tableau de bord des responsables RH
+    │   ├── psyvirtuel.html           # Page de chat avec IA Eden
+    │   ├── activite.html             # Propositions d'activités et gamification
+    │   ├── validation.html           # Validation des justificatifs par les RH
+    │   ├── profile.html              # Profil utilisateur pour les employés
+    │   ├── profiler.html             # Profil utilisateur pour les responsables RH
+    ├── static/                       # Contient les ressources statiques (CSS, JS, images)
+    │   ├── img/                      # Images
+    │   ├── css/                      # Fichiers CSS
+    │   ├── js/                       # Fichiers JavaScript
+    │   ├── lib/                      # Bibliothèques graphiques
+    │   ├── scss/                     # Fichiers Bootstrap
+    ├── tdlog.ipynb                   # Notebook Jupyter avec modèle et analyses
+    ├── employees.json                # Base de données des employés
+    └── grouped_employee.json         # Fichier regroupant les employés par semaine
+
+
 
 ## Guide d'Installation et d'Exécution
 
 Pour exécuter et tester l'application en local, suivez les étapes ci-dessous :
 
 ### **Prérequis**
-- Python 3.x installé sur votre machine.
-- Les bibliothèques Python nécessaires (voir les étapes ci-dessous).
-- Un navigateur web.
+voir le fichier requirements.txt
 
 ### **Étapes**
 1. **Cloner le projet**  
